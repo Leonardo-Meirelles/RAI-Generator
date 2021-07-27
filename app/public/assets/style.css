@@ -9,13 +9,16 @@ body {
     flex-direction: column;
     justify-content: center;
     background-color:darkgray;
+    margin: 0 auto;
 }
 
 header {
     display: flex;
     justify-content: space-around;
-    margin: 5vh;
-    padding: 5px;  
+    align-items: center;
+    margin: 20px;
+    padding: 10px;  
+    height: 2rem;
     background-color:grey;
     border-radius: 50px;
 }
