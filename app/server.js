@@ -12,11 +12,15 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('pages/index')
+    res.render('pages/home')
 });
 
-app.get('/generator', (req, res) => {
-    res.render('pages/generator')
+app.get('/form', (req, res) => {
+    res.render('pages/form')
+});
+
+app.get('/about', (req, res) => {
+    res.render('pages/about')
 });
 
 const port = 3000;
