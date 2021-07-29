@@ -1,15 +1,16 @@
-const express = require('express');
-const app = express();
-const path = require('path');
+import Express from 'express';
+import Path from 'path';
+// import ejs from 'ejs'
 
-//how to get access to static files (css, images..)
-app.use(express.static(__dirname + '/public'));
-
-
+const app = Express();
+const __dirname = Path.resolve();
 
 //set view engine to ejs
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+
+//how to get access to static files (css, images..)
+app.use(Express.static (Path.join(__dirname + '/app','/public')));
+app.set('views', Path.join(__dirname + '/app', 'views'));
 
 app.get('/', (req, res) => {
     res.render('pages/home')
