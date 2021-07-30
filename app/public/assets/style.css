@@ -1,3 +1,5 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css");
+
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +28,7 @@ header {
     background-color:grey;
 }
 
-.button {
+.headerButton {
     border-radius: 20px;
     padding: 8px;
     font-size: 16px;
@@ -35,20 +37,92 @@ header {
     border: 2px solid black;
 }
 
-.button:hover {
+.headerButton:hover {
     background-color: teal;
     color: white;
 }
-main {
+.home-page-main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#cenipaImg {
-    height: 500px;
+.form-page-main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.form-div-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    height: 80px;
+    justify-content: space-around;
+}
+
+.form-div-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldset {
+    display: flex;
+    justify-content: space-around;
+    width: 60vw;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid snow;
+}
+
+.accident-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 20px;
+    height: 400px;
     width: 400px;
+}
+
+.accident-data-2-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.accident-data-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 20px;
+    width: 860px;
+}
+
+.div-max-weight {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#cenipaImg {
+    margin-top: 50px;
+    height: 600px;
+    width: 500px;
 }
 
 .about {
@@ -59,6 +133,38 @@ main {
     height: 60px;
     margin: 20px;
     padding: 10px;
+    border: 1px solid snow;
+}
+
+.addRemoveClear {
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 8px;
+    font-size: 12px;
+    transition-duration: 0.4s;
+    background-color: lightblue;
+    border: 2px solid black;
+}
+
+.addRemoveClear:hover {
+    background-color: teal;
+    color: white;
+}
+
+#sendButton {
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 8px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    background-color: rgb(255, 251, 0);
+    border: 2px solid black;
+}
+
+#sendButton:hover {
+    background-color: teal;
+    color: white;
 }
 
 footer {

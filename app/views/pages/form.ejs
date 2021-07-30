@@ -14,230 +14,143 @@
         <%- include('../includes/header') %>
     </header>
 
-    <main>
-        <div>
+    <main class='form-page-main'>
+        <div class='form-div-1'>
             <h2>Reporte Inicial</h2>
-            <form>
+            <br>
+            <form class='form-1'>
                 <label>Número do Processo:</label>
                 <input type='number'>
             </form>
         </div>
 
-        <div>
-            <form>
-                <fieldset>
-                    <label>Classificação:</label>
-                    <select id='incidentTypes'>
-                        <option value='1'>Acidente</option>
-                        <option value='2'>Incidente Aeronáutico</option>
-                        <option value='2'>Incidente Grave</option>
-                        <option value='3'>Ocorrência de Solo</option>
-                    </select>
+        <div class='form-div-2'>
+            <form class='form-2'>
+                <fieldset class='fieldset'>
+                    <div class='accident-data'>
+                        <label>Classificação:</label>
+                        <select id='incidentTypes'>
+                            <option value='1'>Acidente</option>
+                            <option value='2'>Incidente Aeronáutico</option>
+                            <option value='2'>Incidente Grave</option>
+                            <option value='3'>Ocorrência de Solo</option>
+                        </select>
 
-                    <label>Tipo de Ocorrência:</label>
-                    <input type='text'>
+                        <label>Tipo de Ocorrência:</label>
+                        <input type='text'>
 
-                    <label>Data (UTC):</label>
-                    <input type='date'>
+                        <label>Data (UTC):</label>
+                        <input type='date'>
 
-                    <label>Horário (UTC):</label>
-                    <input type='time'>
+                        <label>Horário (UTC):</label>
+                        <input type='time'>
 
-                    <label>Estado:</label>
-                    <select name="estados-brasil">
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                    </select>
-                    <label>Cidade:</label>
-                    <input type="text" />
+                        <label>Estado:</label>
+                        <select name="estados-brasil">
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
 
-                    <label>Aeródromo (ICAO):</label>
-                    <input type="text" />
+                        <label>Cidade:</label>
+                        <input type="text" />
 
-                    <label>Danos a terceiros?</label>
-                    <label for='tpd-yes'>Sim</label>
-                    <input type='radio' name='thirdPartyDamage' id='tpd-yes' />
-                    <label for='tdp-no'>Não</label>
-                    <input type='radio' name='thirdPartyDamage' id='tdp-no' />
+                        <label>Aeródromo (ICAO):</label>
+                        <input type="text" />
+                    </div>
+
+                    <div class='accident-data'>
+                        <div class='accident-data-2-content'>
+                            <label>Danos a terceiros?</label>
+                            <label for='tpd-yes'>Sim</label>
+                            <input type='radio' name='thirdPartyDamage' id='tpd-yes' />
+                            <label for='tdp-no'>Não</label>
+                            <input type='radio' name='thirdPartyDamage' id='tdp-no' />
+                        </div>
+
+                        <div class='accident-data-2-content'>
+                            <legend>Houve lesão grave?</legend>
+                            <label for='si-yes'>
+                                Sim
+                                <i class="fas fa-long-arrow-alt-down"></i>
+                            </label>
+                            <input type='radio' name='severeInjure' id='si-yes' />
+                            <label for='si-no'>Não</label>
+                            <input type='radio' name='severeInjure' id='si-no' />
+                        </div>
+
+                        <hr>
+
+                        <div class='accident-data-2-content'>
+                            <legend>Função a bordo?</legend>
+                            <label for='crew'>Tripulante</label>
+                            <input type='radio' id='crew' />
+                            <label for='passenger'>Passageiro</label>
+                            <input type='radio' id='passenger' />
+                        </div>
+
+                        <div class='accident-data-2-content'>
+                            <legend>Quantidade</legend>
+                            <input type='number' />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class='fieldset'>
+                    <div class='accident-data-3'>
+                        <h3>Histórico</h3>
+                        <br>
+                        <textarea rows='8' cols='130'></textarea>
+                    </div>
+                </fieldset>
                 
+                <input type="button" class='addRemoveClear fa' value='&#xf067; Adicionar Aeronave'>
+                <input type="button" class='addRemoveClear fa' value='&#xf068; Remover Aeronave'>
+                <input type="button" class='addRemoveClear fa' value='&#xf1f8; Limpar Campos'>
 
-            
-                    <div>
-                        <legend>Houve lesão grave?</legend>
-                        <label for='si-yes'>Sim</label>
-                        <input type='radio' name='severeInjure' id='si-yes' />
-                        <label for='si-no'>Não</label>
-                        <input type='radio' name='severeInjure' id='si-no' />
-                    </div>
-
-                    <div>
-                        <legend>Função a bordo?</legend>
-                        <label for='crew'>Tripulante</label>
-                        <input type='radio' id='crew' />
-                        <label for='passenger'>Passageiro</label>
-                        <input type='radio' id='passenger' />
-                    </div>
-
-                    <div>
-                        <legend>Quantidade</legend>
-                        <input type='number' />
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <h3>Histórico</h3>
-                    <textarea rows='8' cols='130'></textarea>
-                </fieldset>
-
-                <fieldset>
+                <fieldset class='fieldset'>
                     <legend>Aeronaves Envolvidas</legend>
 
-                    <label>Matrícula:</label>
-                    <input type="text" />
+                    <%- include('../includes/addAircraft') %>
 
-                    <label>Local da última decolagem:</label>
-                    <input type="text" />
-
-                    <label>Local pretendido de pouso:</label>
-                    <input type="text" />
-
-                    <label>Categoria de registro:</label>
-                    <select>
-                        <option>Administração Direta</option>
-                        <option>Administração Indireta</option>
-                        <option>Agrícola</option>
-                        <option>Especializada</option>
-                        <option>Experimental</option>
-                        <option>Histórica</option>
-                        <option>Instrução</option>
-                        <option>Múltipla</option>
-                        <option>Não Regular</option>
-                        <option>Particular</option>
-                        <option>Regular</option>
-                        <option>Táxi Aéreo</option>
-                    </select>
-
-                    <label>Tipo de operação:</label>
-                    <select>
-                        <option>Agrícola</option>
-                        <option>Especializada</option>
-                        <option>Experimental</option>
-                        <option>Instrução</option>
-                        <option>Não Regular</option>
-                        <option>Policial</option>
-                        <option>Privada</option>
-                        <option>Regular</option>
-                        <option>Táxi Aéreo</option>
-                    </select>
-
-                    <label>Fase da operação:</label>
-                    <select>
-                        <option>Aproximação Final</option>
-                        <option>Arremetida no Ar</option>
-                        <option>Arremetida no Solo</option>
-                        <option>Cheque de Motor ou Rotor</option>
-                        <option>Circuito de Tráfego</option>
-                        <option>Circuito de TráfegoCorrida Após o Pouso</option>
-                        <option>Cruzeiro</option>
-                        <option>Decolagem</option>
-                        <option>Decolagem Vertical</option>
-                        <option>Descida</option>
-                        <option>Descida de Emergência</option>
-                        <option>Descida Descontrolada</option>
-                        <option>Emprego Militar</option>
-                        <option>Especializada</option>
-                        <option>Espera</option>
-                        <option>Estacionamento</option>
-                        <option>Indeterminada</option>
-                        <option>Manobra</option>
-                        <option>Mudança de Nível ou Altitude</option>
-                        <option>Operação de Solo</option>
-                        <option>Outra Fase</option>
-                        <option>Pairado</option>
-                        <option>Partida de Motor</option>
-                        <option>Pouso</option>
-                        <option>Procedimento de Aproximação IFR</option>
-                        <option>Pushback</option>
-                        <option>Reta Final</option>
-                        <option>Saída IFR</option>
-                        <option>Subida</option>
-                        <option>Táxi</option>
-                        <option>Voo a Baixa Altitude</option>
-                    </select>
-
-                    <label>Danos à aeronave:</label>
-                    <select>
-                        <option>Nenhum</option>
-                        <option>Leve</option>
-                        <option>Substancial</option>
-                        <option>Destruída</option>
-                    </select>
-
-                    <label>Tipo de aeronave:</label>
-                    <select>
-                        <option>Anfíbio</option>
-                        <option>Avião</option>
-                        <option>Balão</option>
-                        <option>Dirigível</option>
-                        <option>Helicóptero</option>
-                        <option>Hidroavião</option>
-                        <option>Planador</option>
-                        <option>Trike</option>
-                        <option>Ultraleve</option>
-                    </select>
-
-                    <label>País de registro:</label>
-                    <input type="text" />
-
-                    <label>Ano de fabricação:</label>
-                    <input type="text" />
-
-                    <label>Fabricante:</label>
-                    <input type="text" />
-
-                    <label>Modelo:</label>
-                    <input type="text" />
-
-                    <label>Peso máximo de decolagem:</label>
-                    <label for='kg'>Kg</label>
-                    <input type='radio' name='max-weight'id='kg' />
-                    <label for='lbs'>Lbs</label>
-                    <input type='radio' name='max-weight'id='lbs' />
-                    <input type="number"/>
                 </fieldset>
+
+                <button type="button" onclick="form()" id='sendButton'>
+                    <i class="far fa-share-square"></i>
+                    Enviar
+                </button>
             </form>
         </div>
-
     </main>
 
     <footer>
         <%- include('../includes/footer') %>
     </footer>
+    <script src="/assets/script.js"></script>
 </body>
 
 </html>
