@@ -1,5 +1,6 @@
 import Express from 'express';
 import Path from 'path';
+import Routes from './routes/routes.js'
 // import ejs from 'ejs'
 
 const app = Express();
@@ -12,17 +13,10 @@ app.set('view engine', 'ejs');
 app.use(Express.static (Path.join(__dirname + '/app','/public')));
 app.set('views', Path.join(__dirname + '/app', 'views'));
 
-app.get('/', (req, res) => {
-    res.render('pages/home')
-});
+Routes(app);
 
-app.get('/form', (req, res) => {
-    res.render('pages/form')
-});
+//     //req.body.telefone - forma de buscar todos os name dentro do html(telefone nesse caso seria de uma tag html)
 
-app.get('/about', (req, res) => {
-    res.render('pages/about')
-});
 
 const port = 3000;
 app.listen(port, () => {
