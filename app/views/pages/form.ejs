@@ -30,10 +30,9 @@
                     <div class='accident-data'>
                         <label>Classificação:</label>
                         <select id='incidentTypes'>
-                            <option value='1'>Acidente</option>
-                            <option value='2'>Incidente Aeronáutico</option>
-                            <option value='2'>Incidente Grave</option>
-                            <option value='3'>Ocorrência de Solo</option>
+                            <% incidentTypes.forEach((item) => { %>
+                            <option value= <%= item.id %> > <%= item.value %> </option>
+                            <% }) %> 
                         </select>
 
                         <label>Tipo de Ocorrência:</label>
@@ -46,34 +45,10 @@
                         <input type='time'>
 
                         <label>Estado:</label>
-                        <select name="estados-brasil">
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
+                        <select name="states">
+                            <% states.forEach((item) => { %>
+                            <option value=<%= item.id %>> <%= item.value %> </option>
+                            <% }) %>    
                         </select>
 
                         <label>Cidade:</label>
@@ -128,9 +103,9 @@
                     </div>
                 </fieldset>
                 
-                <input type="button" class='addRemoveClear fa' value='&#xf067; Adicionar Aeronave'>
-                <input type="button" class='addRemoveClear fa' value='&#xf068; Remover Aeronave'>
-                <input type="button" class='addRemoveClear fa' value='&#xf1f8; Limpar Campos'>
+                <input type="button" class='addRemoveClear fa' value='&#xf067;'>
+                <input type="button" class='addRemoveClear fa' value='&#xf068;'>
+                <input type="button" class='addRemoveClear fa' value='&#xf1f8;'>
 
                 <fieldset class='fieldset'>
                     <legend>Aeronaves Envolvidas</legend>
