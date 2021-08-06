@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <link href="/assets/style.css" rel="stylesheet" type="text/css">
-</head>
+<%- include('../components/head', { title: 'Form' }) %>
 
 <body>
     <header>
-        <%- include('../includes/header') %>
+        <%- include('../components/header') %>
     </header>
 
     <main class='form-page-main'>
@@ -73,24 +64,28 @@
                                 Sim
                                 <i class="fas fa-long-arrow-alt-down"></i>
                             </label>
-                            <input type='radio' name='severeInjure' id='si-yes' />
+                            <input type='radio' onclick="addSevereInjure()" name='severeInjure' id='si-yes' />
                             <label for='si-no'>Não</label>
-                            <input type='radio' name='severeInjure' id='si-no' />
+                            <input type='radio' onclick="clearSevereInjure()" name='severeInjure' id='si-no' />
                         </div>
 
                         <hr>
 
-                        <div class='accident-data-2-content'>
-                            <legend>Função a bordo?</legend>
+                        <div class='accident-data-2-content' id='crewOrPassenger'>
+                            <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
+                            <!-- This content is cleared if id='si-no' is pressed -->
+                            <!-- <legend>Função a bordo?</legend>
                             <label for='crew'>Tripulante</label>
                             <input type='radio' id='crew' />
                             <label for='passenger'>Passageiro</label>
-                            <input type='radio' id='passenger' />
+                            <input type='radio' id='passenger' /> -->
                         </div>
 
-                        <div class='accident-data-2-content'>
-                            <legend>Quantidade</legend>
-                            <input type='number' />
+                        <div class='accident-data-2-content' id='quantity'>
+                            <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
+                            <!-- This content is cleared if id='si-no' is pressed -->
+                            <!-- <legend>Quantidade</legend>
+                            <input type='number' /> -->
                         </div>
                     </div>
                 </fieldset>
@@ -103,18 +98,19 @@
                     </div>
                 </fieldset>
                 
-                <input type="button" class='addRemoveClear fa' value='&#xf067;'>
-                <input type="button" class='addRemoveClear fa' value='&#xf068;'>
-                <input type="button" class='addRemoveClear fa' value='&#xf1f8;'>
+                <input type="button" onclick="addAircraft()" id='addAircraft' class='addRemoveClear fa' value='&#xf067;'>
+                <input type="button" onclick="removeAircraft()" id='removeAircraft' class='addRemoveClear fa' value='&#xf068;'>
+                <input type="button" onclick="clearAircraft()" id='clearAircraft' class='addRemoveClear fa' value='&#xf1f8;'>
 
-                <fieldset class='fieldset'>
+                <fieldset class='fieldset' id='involvedAircraft'>
                     <legend>Aeronaves Envolvidas</legend>
 
-                    <%- include('../includes/addAircraft') %>
+
+                    <%- include('../components/addAircraft') %>
 
                 </fieldset>
 
-                <button type="button" onclick="form()" id='sendButton'>
+                <button type="button" onclick="" id='sendButton'>
                     <i class="far fa-share-square"></i>
                     Enviar
                 </button>
@@ -123,7 +119,7 @@
     </main>
 
     <footer>
-        <%- include('../includes/footer') %>
+        <%- include('../components/footer') %>
     </footer>
     <script src="/assets/script.js"></script>
 </body>

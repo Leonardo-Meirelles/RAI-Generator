@@ -6,17 +6,18 @@ import operationPhase from '../models/model-operationPhase.js';
 import aircraftDamage from '../models/model-aircraftDamage.js';
 import aircraftType from '../models/model-aircraftType.js';
 
+const viewModel = {
+    incidentTypes, 
+    states, 
+    registerCategory, 
+    operationType, 
+    operationPhase, 
+    aircraftDamage, 
+    aircraftType
+}
 
 const getForm = (req, res, next) => {
-    res.render('pages/form', {
-        incidentTypes, 
-        states, 
-        registerCategory, 
-        operationType, 
-        operationPhase, 
-        aircraftDamage, 
-        aircraftType
-    });
+    res.render('pages/form', viewModel);
 }
 
 export { getForm }
