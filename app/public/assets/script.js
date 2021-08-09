@@ -46,10 +46,3 @@ function clearSevereInjure() {
     quantity.innerHTML = '';
 
 };
-
-function addAircraft() {
-    
-    const aircraft = document.getElementById('involvedAircraft');
-
-    aircraft.append()
-}

@@ -1,11 +1,14 @@
 import Express from 'express';
 import Path from 'path';
 import Routes from './routes/routes.js'
-// import ejs from 'ejs'
+
+
 
 const app = Express();
 const __dirname = Path.resolve();
 
+app.use(Express.json())
+app.use(Express.urlencoded({extended:true}))
 //set view engine to ejs
 app.set('view engine', 'ejs');
 
