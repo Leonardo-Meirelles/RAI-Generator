@@ -1,21 +1,34 @@
-import Joi from 'joi';
+import Ejs from 'ejs';
+import Path from 'path';
+import * as Fs from 'fs';
+import HtmlToPdf from 'html-pdf-node';
 
-import incidentTypes from '../models/model-incidentTypes.js';
-import states from '../models/model-states.js';
-import registerCategory from '../models/model-registerCategory.js';
-import operationType from '../models/model-operationType.js';
-import operationPhase from '../models/model-operationPhase.js';
-import aircraftDamage from '../models/model-aircraftDamage.js';
-import aircraftType from '../models/model-aircraftType.js';
+//* { Import Models 
+import classificationModel from '../models/model-classification.js';
+import { statesModel, filterStatesModel } from '../models/model-states.js';
+import thirdPartyDamageModel from '../models/model-thirdPartyDamage.js';
+import severeInjureModel from '../models/model-severeInjure.js';
+import registerCategoryModel from '../models/model-registerCategory.js';
+import operationTypeModel from '../models/model-operationType.js';
+import operationPhaseModel from '../models/model-operationPhase.js';
+import aircraftDamageModel from '../models/model-aircraftDamage.js';
+import aircraftTypeModel from '../models/model-aircraftType.js';
+import maxTakeOffWeightOptionModel from '../models/model-maxTakeOffWeightOption.js';
+//* Import Models }
+
+import filterModelFunction from '../utils/filterModelFunction.js';
+import joiSchema from '../utils/joiSchema.js';
+
+const __dirname = Path.resolve();
 
 const viewModel = {
-    incidentTypes, 
-    states, 
-    registerCategory, 
-    operationType, 
-    operationPhase, 
-    aircraftDamage, 
-    aircraftType
+    classificationModel,
+    statesModel,
+    registerCategoryModel,
+    operationTypeModel,
+    operationPhaseModel,
+    aircraftDamageModel,
+    aircraftTypeModel
 };
 
 const getForm = (req, res, next) => {
@@ -24,44 +37,103 @@ const getForm = (req, res, next) => {
 
 };
 
-const postFormSchema = Joi.object({
-    
-    processNumber: Joi.number().required(),
-    classification: Joi.number().required(),
-    occurrenceType: Joi.string().required(),
-    date: Joi.date().iso().required(),
-    time: Joi.string().required(),
-    state: Joi.string().uppercase().min(2).max(2).required(),
-    city: Joi.string().required(),
-    aerodrome: Joi.string().uppercase().min(4).max(4).required(),
-    thirdPartyDamage: Joi.number().required(),
-    severeInjure: Joi.number().required(),
-    onBoardFunction: Joi.number().required(),
-    quantity: Joi.number().required(),
-    history: Joi.string().min(10).required(),
-    registration: Joi.string().uppercase().min(5).max(5).required(),
-    lastTakeOff: Joi.string().required(),
-    landing: Joi.string().required(),
-    registerCategory: Joi.number().required(),
-    operationType: Joi.number().required(),
-    operationPhase: Joi.number().required(),
-    aircraftDamage: Joi.number().required(),
-    aircraftType: Joi.number().required(),
-    registryCountry: Joi.string().required(),
-    manufacturingYear: Joi.number().min(4).max(4).required(),
-    manufacturer: Joi.string().uppercase().required(),
-    model: Joi.string().required(),
-    maxTakeOffWeightOption: Joi.number().required(),
-    maxTakeOffWeight: Joi.number().required(),
-
-}).unknown(true);
+const postFormSchema = joiSchema
 
 const postForm = (req, res, next) => {
 
-    res.json({
-        certo: console.log('deu certo'),
-        info: req.body
-    });
+    const {
+        processNumber,
+        classification,
+        occurrenceType,
+        date,
+        time,
+        state,
+        city,
+        aerodrome,
+        thirdPartyDamage,
+        severeInjure,
+        onBoardFunction1,
+        onBoardFunction2,
+        quantity,
+        history,
+        registration,
+        lastTakeOff,
+        landing,
+        registerCategory,
+        operationType,
+        operationPhase,
+        aircraftDamage,
+        aircraftType,
+        registryCountry,
+        manufacturingYear,
+        manufacturer,
+        model,
+        maxTakeOffWeightOption,
+        maxTakeOffWeight
+
+    } = req.body
+
+    const selectedClassification = filterModelFunction(classificationModel, classification)
+    const selectedState = filterStatesModel(state)
+    const selectedThirdPartyDamage = filterModelFunction(thirdPartyDamageModel, thirdPartyDamage)
+    const selectedSevereInjure = filterModelFunction(severeInjureModel, severeInjure)
+    const selectedRegisterCategory = filterModelFunction(registerCategoryModel, registerCategory)
+    const selectedOperationType = filterModelFunction(operationTypeModel, operationType)
+    const selectedOperationPhase = filterModelFunction(operationPhaseModel, operationPhase)
+    const selectedAircraftDamage = filterModelFunction(aircraftDamageModel, aircraftDamage)
+    const selectedAircraftType = filterModelFunction(aircraftTypeModel, aircraftType)
+    const selectedMaxTakeOffWeightOption = filterModelFunction(maxTakeOffWeightOptionModel, maxTakeOffWeightOption)
+
+    const pdfViewModel = {
+        processNumber,
+        classification: selectedClassification.value,
+        occurrenceType,
+        date,
+        time,
+        state: selectedState.value,
+        city,
+        aerodrome,
+        thirdPartyDamage: selectedThirdPartyDamage.value,
+        severeInjure: selectedSevereInjure.value,
+        onBoardFunction1,
+        onBoardFunction2,
+        quantity,
+        history,
+        registration,
+        lastTakeOff,
+        landing,
+        registerCategory: selectedRegisterCategory.value,
+        operationType: selectedOperationType.value,
+        operationPhase: selectedOperationPhase.value,
+        aircraftDamage: selectedAircraftDamage.value,
+        aircraftType: selectedAircraftType.value,
+        registryCountry,
+        manufacturingYear,
+        manufacturer,
+        model,
+        maxTakeOffWeightOption: selectedMaxTakeOffWeightOption.value,
+        maxTakeOffWeight,
+    }
+
+    const filePath = Path.join(__dirname + '/app', '/views/pages/pdf.ejs');
+    const templateHtml = Fs.readFileSync(filePath, 'utf8');
+    const htmlPronto = Ejs.render(templateHtml, pdfViewModel);
+
+    const file = {
+        content: htmlPronto
+    };
+
+    const configuracoes = {
+        format: 'A4',
+        printBackground: true
+    };
+
+    HtmlToPdf.generatePdf(file, configuracoes)
+        .then((resultPromessa) => {
+            res.contentType("application/pdf");
+            res.send(resultPromessa);
+        });
+
 
 };
 

@@ -44,7 +44,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 30vw;
+    width: 35vw;
 }
 
 .navLogo {
@@ -150,8 +150,9 @@ header {
 
 .div-max-weight {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #cenipaImg {

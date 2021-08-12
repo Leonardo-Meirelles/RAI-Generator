@@ -1,4 +1,4 @@
-const incidentTypes = [
+const classificationModel = [
     {
         id: 1,
         value: 'Acidente'
@@ -18,4 +18,4 @@ const incidentTypes = [
     }
 ];
 
-export default incidentTypes
+export default classificationModel

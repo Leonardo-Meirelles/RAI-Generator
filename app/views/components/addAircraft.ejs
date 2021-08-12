@@ -1,38 +1,42 @@
 <div class='accident-data'>
 
     <label>Matrícula:</label>
-    <input type="text" />
+    <input type="text" name='registration' />
 
     <label>Local da última decolagem:</label>
-    <input type="text" />
+    <input type="text" name='lastTakeOff' />
 
     <label>Local pretendido de pouso:</label>
-    <input type="text" />
+    <input type="text" name='landing' />
 
     <label id='registerCategory'>Categoria de registro:</label>
-    <select>
-        <% registerCategory.forEach((item) => { %>
+    <select name='registerCategory' >
+        <option selected disabled></option>
+        <% registerCategoryModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
         <% }) %>
     </select>
 
     <label id='operationType'>Tipo de operação:</label>
-    <select>
-        <% operationType.forEach((item) => { %>
+    <select name='operationType'>
+        <option selected disabled></option>
+        <% operationTypeModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
         <% }) %>    
     </select>
 
     <label>Fase da operação:</label>
-    <select id='operationPhase'>
-        <% operationPhase.forEach((item) => { %>
+    <select id='operationPhase' name='operationPhase'>
+        <option selected disabled></option>
+        <% operationPhaseModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
         <% }) %>    
     </select>
 
     <label>Danos à aeronave:</label>
-    <select id='aircraftDamage'>
-        <% aircraftDamage.forEach((item) => { %>
+    <select id='aircraftDamage' name='aircraftDamage'>
+        <option selected disabled></option>
+        <% aircraftDamageModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
         <% }) %>
     </select>
@@ -40,30 +44,33 @@
 
 <div class='accident-data'>
     <label>Tipo de aeronave:</label>
-    <select id='aircraftType'>
-        <% aircraftType.forEach((item) => { %>
+    <select id='aircraftType' name='aircraftType'>
+        <option selected disabled></option>
+        <% aircraftTypeModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
         <% }) %>
     </select>
 
     <label>País de registro:</label>
-    <input type="text" />
+    <input type="text" name='registryCountry' />
 
     <label>Ano de fabricação:</label>
-    <input type="text" />
+    <input type="text" name='manufacturingYear' />
 
     <label>Fabricante:</label>
-    <input type="text" />
+    <input type="text" name='manufacturer' />
 
     <label>Modelo:</label>
-    <input type="text" />
+    <input type="text" name='model' />
 
     <div class='div-max-weight'>
         <label>Peso máximo de decolagem:</label>
-        <label for='kg'>Kg</label>
-        <input type='radio' name='max-weight' id='kg' />
-        <label for='lbs'>Lbs</label>
-        <input type='radio' name='max-weight' id='lbs' />
-        <input type="number" />
+        <div>
+            <label for='kg'>Kg</label>
+            <input type='radio' name='maxTakeOffWeightOption' value="1" id='kg' />
+            <label for='lbs'>Lbs</label>
+            <input type='radio' name='maxTakeOffWeightOption' value="2" id='lbs' />
+            <input type="number" name='maxTakeOffWeight' />
+        </div>
     </div>
 </div>

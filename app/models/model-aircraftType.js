@@ -1,4 +1,4 @@
-const aircraftType = [
+const aircraftTypeModel = [
     {
         id: 1,
         value: 'Anfíbio'
@@ -35,6 +35,6 @@ const aircraftType = [
         id: 9,
         value: 'Ultraleve'
     }
-]
+];
 
-export default aircraftType
+export default aircraftTypeModel

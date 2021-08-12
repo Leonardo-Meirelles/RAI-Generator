@@ -1,4 +1,4 @@
-const operationType = [
+const operationTypeModel = [
     {
         id: 1,
        value: 'Agrícola'
@@ -35,6 +35,6 @@ const operationType = [
         id: 9,
         value: 'Táxi Aéreo'
     },
-]
+];
 
-export default operationType
+export default operationTypeModel

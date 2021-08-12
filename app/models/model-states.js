@@ -1,4 +1,4 @@
-const states = [
+const statesModel = [
     {
         id: 'AC',
         value: 'Acre'
@@ -134,6 +134,16 @@ const states = [
         id: 'TO',
         value: 'Tocantins'
     }
-]
+];
 
-export default states
+const filterStatesModel = (e) => {
+
+    const result = statesModel.filter((item) => {
+        return item.id === e;
+    });
+
+    return result.length > 0 ? result[0] : undefined;
+
+};
+
+export { statesModel, filterStatesModel }

@@ -1,126 +1,132 @@
 <%- include('../components/head', { title: 'Form' }) %>
 
-<body>
-    <header>
-        <%- include('../components/header') %>
-    </header>
+    <body>
+        <header>
+            <%- include('../components/header') %>
+        </header>
 
-    <main class='form-page-main'>
-        <div class='form-div-1'>
-            <h2>Reporte Inicial</h2>
-            <br>
-            <form class='form-1'>
-                <label>Número do Processo:</label>
-                <input type='number'>
-            </form>
-        </div>
+        <main class='form-page-main'>
+            <form class='form-1' action="/form" method="POST">
+                <div class='form-div-1'>
+                    <h2>Reporte Inicial</h2>
+                    <br>
+                    <label>Número do Processo:</label>
+                    <input type='number' name="processNumber">
+                </div>
 
-        <div class='form-div-2'>
-            <form class='form-2'>
-                <fieldset class='fieldset'>
-                    <div class='accident-data'>
-                        <label>Classificação:</label>
-                        <select id='incidentTypes'>
-                            <% incidentTypes.forEach((item) => { %>
-                            <option value= <%= item.id %> > <%= item.value %> </option>
-                            <% }) %> 
-                        </select>
+                <div class='form-div-2'>
+                    <fieldset class='fieldset'>
+                        <div class='accident-data'>
+                            <label>Classificação:</label>
+                            <select name='classification' id='incidentTypes'>
+                                <option selected disabled></option>
+                                <% classificationModel.forEach((item)=> { %>
+                                    <option value=<%=item.id %> > <%= item.value %></option>
+                                    <% }) %>
+                            </select>
 
-                        <label>Tipo de Ocorrência:</label>
-                        <input type='text'>
+                            <label>Tipo de Ocorrência:</label>
+                            <input type='text' name="occurrenceType" />
 
-                        <label>Data (UTC):</label>
-                        <input type='date'>
+                            <label>Data (UTC):</label>
+                            <input name="date" id="date-mask" />
 
-                        <label>Horário (UTC):</label>
-                        <input type='time'>
+                            <label>Horário (UTC):</label>
+                            <input type='time' name="time" />
 
-                        <label>Estado:</label>
-                        <select name="states">
-                            <% states.forEach((item) => { %>
-                            <option value=<%= item.id %>> <%= item.value %> </option>
-                            <% }) %>    
-                        </select>
+                            <label>Estado:</label>
+                            <select name="state">
+                                <option selected disabled></option>
+                                <% statesModel.forEach((item)=> { %>
+                                    <option value=<%=item.id %>> <%= item.value %></option>
+                                    <% }) %>
+                            </select>
 
-                        <label>Cidade:</label>
-                        <input type="text" />
+                            <label>Cidade:</label>
+                            <input type="text" name="city" />
 
-                        <label>Aeródromo (ICAO):</label>
-                        <input type="text" />
-                    </div>
-
-                    <div class='accident-data'>
-                        <div class='accident-data-2-content'>
-                            <label>Danos a terceiros?</label>
-                            <label for='tpd-yes'>Sim</label>
-                            <input type='radio' name='thirdPartyDamage' id='tpd-yes' />
-                            <label for='tdp-no'>Não</label>
-                            <input type='radio' name='thirdPartyDamage' id='tdp-no' />
+                            <label>Aeródromo (ICAO):</label>
+                            <input type="text" name="aerodrome" />
                         </div>
 
-                        <div class='accident-data-2-content'>
-                            <legend>Houve lesão grave?</legend>
-                            <label for='si-yes'>
-                                Sim
-                                <i class="fas fa-long-arrow-alt-down"></i>
-                            </label>
-                            <input type='radio' onclick="addSevereInjure()" name='severeInjure' id='si-yes' />
-                            <label for='si-no'>Não</label>
-                            <input type='radio' onclick="clearSevereInjure()" name='severeInjure' id='si-no' />
-                        </div>
+                        <div class='accident-data'>
+                            <div class='accident-data-2-content'>
+                                <label>Danos a terceiros?</label>
+                                <label for='tpd-yes'>Sim</label>
+                                <input type='radio' name='thirdPartyDamage' value='1' id='tpd-yes' />
+                                <label for='tdp-no'>Não</label>
+                                <input type='radio' name='thirdPartyDamage' value='2' id='tdp-no' />
+                            </div>
 
-                        <hr>
+                            <div class='accident-data-2-content'>
+                                <legend>Houve lesão grave?</legend>
+                                <label for='si-yes' >
+                                    Sim
+                                    <i class="fas fa-long-arrow-alt-down"></i>
+                                </label>
+                                <input type='radio' onclick="addSevereInjure()" name='severeInjure' value='1' id='si-yes' />
+                                <label for='si-no'>Não</label>
+                                <input type='radio' onclick="clearSevereInjure()" name='severeInjure' value='2' id='si-no' />
+                            </div>
 
-                        <div class='accident-data-2-content' id='crewOrPassenger'>
-                            <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
-                            <!-- This content is cleared if id='si-no' is pressed -->
-                            <!-- <legend>Função a bordo?</legend>
+                            <hr>
+
+                            <div class='accident-data-2-content' id='crewOrPassenger'>
+                                <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
+                                <!-- This content is cleared if id='si-no' is pressed -->
+                                <!-- <legend>Função a bordo?</legend>
                             <label for='crew'>Tripulante</label>
                             <input type='radio' id='crew' />
                             <label for='passenger'>Passageiro</label>
                             <input type='radio' id='passenger' /> -->
-                        </div>
+                            </div>
 
-                        <div class='accident-data-2-content' id='quantity'>
-                            <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
-                            <!-- This content is cleared if id='si-no' is pressed -->
-                            <!-- <legend>Quantidade</legend>
+                            <div class='accident-data-2-content' id='quantity'>
+                                <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
+                                <!-- This content is cleared if id='si-no' is pressed -->
+                                <!-- <legend>Quantidade</legend>
                             <input type='number' /> -->
+                            </div>
                         </div>
+                    </fieldset>
+
+                    <fieldset class='fieldset'>
+                        <div class='accident-data-3'>
+                            <h3>Histórico</h3>
+                            <br>
+                            <textarea rows='8' cols='130' name='history'></textarea>
+                        </div>
+                    </fieldset>
+
+                    <div>
+                        <input type="button" onclick="addAircraft()" id='addAircraft' class='addRemoveClear fa'
+                            value='&#xf067;'>
+                        <input type="button" onclick="removeAircraft()" id='removeAircraft' class='addRemoveClear fa'
+                            value='&#xf068;'>
+                        <input type="button" onclick="clearAircraft()" id='clearAircraft' class='addRemoveClear fa'
+                            value='&#xf1f8;'>
                     </div>
-                </fieldset>
 
-                <fieldset class='fieldset'>
-                    <div class='accident-data-3'>
-                        <h3>Histórico</h3>
-                        <br>
-                        <textarea rows='8' cols='130'></textarea>
-                    </div>
-                </fieldset>
-                
-                <input type="button" onclick="" id='addAircraft' name='1'  class='addRemoveClear fa' value='&#xf067;'>
-                <input type="button" onclick="removeAircraft()" id='removeAircraft' class='addRemoveClear fa' value='&#xf068;'>
-                <input type="button" onclick="clearAircraft()" id='clearAircraft' class='addRemoveClear fa' value='&#xf1f8;'>
+                    <fieldset class='fieldset' id='involvedAircraft'>
+                        <legend>Aeronaves Envolvidas</legend>
 
-                <fieldset class='fieldset' id='involvedAircraft'>
-                    <legend>Aeronaves Envolvidas</legend>
+                        <%- include('../components/addAircraft') %>
 
-                    <%- include('../components/addAircraft') %>
-    
-                </fieldset>
+                    </fieldset>
 
-                <button type="button" onclick="" id='sendButton'>
-                    <i class="far fa-share-square"></i>
-                    Enviar
-                </button>
+                    <button type="submit" onclick="" id='sendButton'>
+                        <i class="far fa-share-square"></i>
+                        Enviar
+                    </button>
             </form>
-        </div>
-    </main>
+            </div>
+        </main>
 
-    <footer>
-        <%- include('../components/footer') %>
-    </footer>
-    <script src="/assets/script.js"></script>
-</body>
+        <footer>
+            <%- include('../components/footer') %>
+        </footer>
+        <script src="/assets/appendButton.js" type="text/javascript"></script>
+        <!-- <script src="/assets/iMask.js" type="module"></script> -->
+    </body>
 
-</html>
+    </html>

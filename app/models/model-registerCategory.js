@@ -1,4 +1,4 @@
-const registerCategory = [
+const registerCategoryModel = [
     {
         id: 1,
         value: 'Administração Direta'
@@ -47,6 +47,6 @@ const registerCategory = [
         id: 12,
         value: 'Táxi Aéreo'
     }
-]
+];
 
-export default registerCategory
+export default registerCategoryModel

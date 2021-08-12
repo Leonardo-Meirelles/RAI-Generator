@@ -1,4 +1,5 @@
-const aircraftDamage = [
+
+const aircraftDamageModel = [
     {
         id: 1,
         value: 'Nenhum'
@@ -15,7 +16,6 @@ const aircraftDamage = [
         id: 4,
         value: 'Destruída'
     },
-]
+];
 
-
-export default aircraftDamage
+export default aircraftDamageModel
