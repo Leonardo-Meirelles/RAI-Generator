@@ -22,7 +22,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color:darkgray;
+    background-color:grey;
     min-height: 100vh;
     width: 100vw;
     margin: 0 auto;
@@ -37,7 +37,7 @@ header {
     padding: 5px;  
     height: 80px;
     border-radius: 20px;
-    background-color:grey;
+    background-color:darkgrey;
 }
 
 .navBar {
@@ -65,7 +65,7 @@ header {
 }
 
 .headerButton {
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 8px;
     transition-duration: 0.4s;
     background-color: lightblue;
@@ -96,7 +96,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5px;
+    margin: 50px 10px 20px 10px;
     padding: 5px;
     height: 80px;
     justify-content: space-around;
@@ -111,15 +111,41 @@ header {
 .form-1 {
     display: flex;
     flex-direction: column;
+    padding: 15px;
+    margin: 15px;
+}
+
+.h1 {
+    font-size:30px
+}
+
+.h2 {
+    font-size:25px
+}
+
+.customInput {
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.customInput:focus {
+    background-color: white;
 }
 
 .fieldset {
     display: flex;
     justify-content: space-around;
     width: 60vw;
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     border: 1px solid snow;
+    background-color: darkgrey;
+    border-radius: 20px
 }
 
 .accident-data {
@@ -212,7 +238,7 @@ footer {
     border-radius: 20px;
     margin: auto 20px 20px 20px;
     padding: 5px;
-    background-color:grey;
+    background-color:darkgrey;
 
 }
 

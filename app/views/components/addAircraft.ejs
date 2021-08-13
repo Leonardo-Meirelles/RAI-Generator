@@ -1,16 +1,16 @@
 <div class='accident-data'>
 
     <label>Matrícula:</label>
-    <input type="text" name='registration' />
+    <input type="text" name='registration' id='registration' class='customInput' />
 
     <label>Local da última decolagem:</label>
-    <input type="text" name='lastTakeOff' />
+    <input type="text" name='lastTakeOff' class='customInput' />
 
-    <label>Local pretendido de pouso:</label>
-    <input type="text" name='landing' />
+    <label >Local pretendido de pouso:</label>
+    <input type="text" name='landing' class='customInput' />
 
     <label id='registerCategory'>Categoria de registro:</label>
-    <select name='registerCategory' >
+    <select name='registerCategory' class='customInput' >
         <option selected disabled></option>
         <% registerCategoryModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
@@ -18,7 +18,7 @@
     </select>
 
     <label id='operationType'>Tipo de operação:</label>
-    <select name='operationType'>
+    <select name='operationType' class='customInput'>
         <option selected disabled></option>
         <% operationTypeModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
@@ -26,7 +26,7 @@
     </select>
 
     <label>Fase da operação:</label>
-    <select id='operationPhase' name='operationPhase'>
+    <select id='operationPhase' name='operationPhase' class='customInput'>
         <option selected disabled></option>
         <% operationPhaseModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
@@ -34,7 +34,7 @@
     </select>
 
     <label>Danos à aeronave:</label>
-    <select id='aircraftDamage' name='aircraftDamage'>
+    <select id='aircraftDamage' name='aircraftDamage' class='customInput'>
         <option selected disabled></option>
         <% aircraftDamageModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
@@ -44,7 +44,7 @@
 
 <div class='accident-data'>
     <label>Tipo de aeronave:</label>
-    <select id='aircraftType' name='aircraftType'>
+    <select id='aircraftType' name='aircraftType' class='customInput'>
         <option selected disabled></option>
         <% aircraftTypeModel.forEach((item) => { %>
         <option value=<%= item.id %> > <%= item.value %> </option>
@@ -52,16 +52,16 @@
     </select>
 
     <label>País de registro:</label>
-    <input type="text" name='registryCountry' />
+    <input type="text" name='registryCountry' class='customInput' />
 
     <label>Ano de fabricação:</label>
-    <input type="text" name='manufacturingYear' />
+    <input type="text" name='manufacturingYear' class='customInput' />
 
     <label>Fabricante:</label>
-    <input type="text" name='manufacturer' />
+    <input type="text" name='manufacturer' class='customInput' />
 
     <label>Modelo:</label>
-    <input type="text" name='model' />
+    <input type="text" name='model' class='customInput' />
 
     <div class='div-max-weight'>
         <label>Peso máximo de decolagem:</label>
@@ -70,7 +70,7 @@
             <input type='radio' name='maxTakeOffWeightOption' value="1" id='kg' />
             <label for='lbs'>Lbs</label>
             <input type='radio' name='maxTakeOffWeightOption' value="2" id='lbs' />
-            <input type="number" name='maxTakeOffWeight' />
+            <input type="number" name='maxTakeOffWeight' class='customInput' />
         </div>
     </div>
 </div>
