@@ -8,110 +8,120 @@
         <main class='form-page-main'>
             <form class='form-1 ' action="/form" method="POST">
                 <div class='form-div-1'>
-                    <h1 class='h1'>Reporte Inicial</h1>
+                    <h1 class='page-title'>Reporte Inicial</h1>
                     <br>
-                    <label>Número do Processo:</label>
+                    <h2>Número do Processo:</h2>
                     <input type='number' name="processNumber" class='customInput'>
                 </div>
 
                 <div class='form-div-2'>
-                    <fieldset class='fieldset'>
-                        <div class='accident-data'>
-                            <label>Classificação:</label>
-                            <select name='classification' id='incidentTypes' class='customInput'>
-                                <option selected disabled></option>
-                                <% classificationModel.forEach((item)=> { %>
-                                    <option value=<%=item.id %> > <%= item.value %></option>
-                                    <% }) %>
-                            </select>
+                    <fieldset class='fieldset-1'>
+                        <h1 class='fieldset-title'>Dados Iniciais</h1>
+                        <div class='fieldset-1-div'>
+                            <div class='accident-data'>
+                                <label>Classificação:</label>
+                                <select name='classification' id='incidentTypes' class='customInput'>
+                                    <option selected disabled></option>
+                                    <% classificationModel.forEach((item)=> { %>
+                                        <option value=<%=item.id %> > <%= item.value %>
+                                        </option>
+                                        <% }) %>
+                                </select>
 
-                            <label>Tipo de Ocorrência:</label>
-                            <input type='text' name="occurrenceType" class='customInput' />
+                                <label>Tipo de Ocorrência:</label>
+                                <input type='text' name="occurrenceType" class='customInput' />
 
-                            <label>Data (UTC):</label>
-                            <input name="date" id="date-mask" class='customInput' />
+                                <label>Data (UTC):</label>
+                                <input name="date" id="date-mask" class='customInput' />
 
-                            <label>Horário (UTC):</label>
-                            <input name="time" id="time-mask" class='customInput' />
+                                <label>Horário (UTC):</label>
+                                <input name="time" id="time-mask" class='customInput' />
 
-                            <label>Estado:</label>
-                            <select name="state" class='customInput'>
-                                <option selected disabled></option>
-                                <% statesModel.forEach((item)=> { %>
-                                    <option value=<%=item.id %>> <%= item.value %></option>
-                                    <% }) %>
-                            </select>
+                                <label>Estado:</label>
+                                <select name="state" class='customInput'>
+                                    <option selected disabled></option>
+                                    <% statesModel.forEach((item)=> { %>
+                                        <option value=<%=item.id %>> <%= item.value %>
+                                        </option>
+                                        <% }) %>
+                                </select>
 
-                            <label>Cidade:</label>
-                            <input type="text" name="city" class='customInput' />
+                                <label>Cidade:</label>
+                                <input type="text" name="city" class='customInput' />
 
-                            <label>Aeródromo (ICAO):</label>
-                            <input type="text" name="aerodrome" id='aerodrome' class='customInput' />
-                        </div>
-
-                        <div class='accident-data'>
-                            <div class='accident-data-2-content'>
-                                <label >Danos a terceiros?</label>
-                                <label for='tpd-yes'>Sim</label>
-                                <input type='radio' name='thirdPartyDamage' value='1' id='tpd-yes' class='customInput' />
-                                <label for='tdp-no'>Não</label>
-                                <input type='radio' name='thirdPartyDamage' value='2' id='tdp-no' class='customInput' />
+                                <label>Aeródromo (ICAO):</label>
+                                <input type="text" name="aerodrome" id='aerodrome' class='customInput' />
                             </div>
 
-                            <div class='accident-data-2-content'>
-                                <legend >Houve lesão grave?</legend>
-                                <label for='si-yes' >
-                                    Sim
-                                    <i class="fas fa-long-arrow-alt-down"></i>
-                                </label>
-                                <input type='radio' onclick="addSevereInjure()" name='severeInjure' value='1' id='si-yes' class='customInput' />
-                                <label for='si-no'>Não</label>
-                                <input type='radio' onclick="clearSevereInjure()" name='severeInjure' value='2' id='si-no' class='customInput' />
-                            </div>
+                            <div class='accident-data'>
+                                <div class='accident-data-2-content border'>
+                                    <label>Danos a terceiros?</label>
+                                    <label for='tpd-yes'>Sim</label>
+                                    <input type='radio' name='thirdPartyDamage' value='1' id='tpd-yes' class='customRadio' />
+                                    <label for='tdp-no'>Não</label>
+                                    <input type='radio' name='thirdPartyDamage' value='2' id='tdp-no' class='customRadio' />
+                                </div>
 
-                            <hr>
+                                <div class='accident-data-2-content border'>
+                                    <legend>Houve lesão grave?</legend>
+                                    <label for='si-yes'>
+                                        Sim
+                                        <i class="fas fa-long-arrow-alt-down"></i>
+                                    </label>
+                                    <input type='radio' onclick="addSevereInjure()" name='severeInjure' value='1' id='si-yes' class='customRadio' />
+                                    <label for='si-no'>Não</label>
+                                    <input type='radio' onclick="clearSevereInjure()" name='severeInjure' value='2' id='si-no' class='customRadio' />
+                                </div>
 
-                            <div class='accident-data-2-content' id='crewOrPassenger'>
-                                <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
-                                <!-- This content is cleared if id='si-no' is pressed -->
-                                <!-- <legend>Função a bordo?</legend>
+                                <hr>
+
+                                <div class='accident-data-2-content' id='crewOrPassenger'>
+                                    <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
+                                    <!-- This content is cleared if id='si-no' is pressed -->
+                                    <!-- <legend>Função a bordo?</legend>
                             <label for='crew'>Tripulante</label>
                             <input type='radio' id='crew' />
                             <label for='passenger'>Passageiro</label>
                             <input type='radio' id='passenger' /> -->
-                            </div>
+                                </div>
 
-                            <div class='accident-data-2-content' id='quantity'>
-                                <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
-                                <!-- This content is cleared if id='si-no' is pressed -->
-                                <!-- <legend>Quantidade</legend>
+                                <div class='accident-data-2-content' id='quantity'>
+                                    <!-- This content is only added if the above radial button with id='si-yes' is pressed -->
+                                    <!-- This content is cleared if id='si-no' is pressed -->
+                                    <!-- <legend>Quantidade</legend>
                             <input type='number' /> -->
+                                </div>
                             </div>
                         </div>
                     </fieldset>
 
                     <fieldset class='fieldset'>
                         <div class='accident-data-3'>
-                            <h2 class='h2'>Histórico</h2>
+                            <h2 class='fieldset-title'>Histórico</h2>
                             <br>
                             <textarea rows='8' cols='130' name='history' class='customInput'></textarea>
                         </div>
                     </fieldset>
 
-                    <div>
+                    <!-- <div>
                         <input type="button" onclick="addAircraft()" id='addAircraft' class='addRemoveClear fa'
                             value='&#xf067;'>
                         <input type="button" onclick="removeAircraft()" id='removeAircraft' class='addRemoveClear fa'
                             value='&#xf068;'>
                         <input type="button" onclick="clearAircraft()" id='clearAircraft' class='addRemoveClear fa'
                             value='&#xf1f8;'>
-                    </div>
+                    </div> -->
 
-                    <h1 class='h2'>Aeronaves Envolvidas</h1>
-                    
-                    <fieldset class='fieldset' id='involvedAircraft'>
+                    <fieldset class='fieldset-3' id='involvedAircraft'>
 
-                        <%- include('../components/addAircraft') %>
+                        <div class='register'>
+                            <h1 class='fieldset-title'>Aeronaves Envolvidas</h1>
+                            <label>Matrícula:</label>
+                            <input type="text" name='registration' id='registration' class='customInput' />
+                        </div>
+                        <div class='accident-data-div'>
+                            <%- include('../components/addAircraft') %>
+                        </div>
 
                     </fieldset>
 

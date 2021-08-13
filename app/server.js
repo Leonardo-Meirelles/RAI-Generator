@@ -12,11 +12,11 @@ app.use(Express.urlencoded({extended:true}))
 app.set('view engine', 'ejs');
 
 //how to get access to static files (css, images..)
-app.use(Express.static (Path.join(__dirname + '/app','/public')));
+app.use(Express.static(Path.join(__dirname + '/app','/public')));
 app.set('views', Path.join(__dirname + '/app', 'views'));
 
 Routes(app);
 
-const port = 3000;
+const port = 5000;
 app.listen(port, () => {
 })

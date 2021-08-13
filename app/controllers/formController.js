@@ -3,6 +3,9 @@ import Path from 'path';
 import * as Fs from 'fs';
 import HtmlToPdf from 'html-pdf-node';
 
+import Express from 'express';
+const app = Express();
+
 //* { Import Models 
 import classificationModel from '../models/model-classification.js';
 import { statesModel, filterStatesModel } from '../models/model-states.js';
@@ -31,6 +34,7 @@ const viewModel = {
     aircraftTypeModel
 };
 
+//!! Get Controller
 const getForm = (req, res, next) => {
 
     res.render('pages/form', viewModel);
@@ -39,6 +43,7 @@ const getForm = (req, res, next) => {
 
 const postFormSchema = joiSchema
 
+//!! Post Controller
 const postForm = (req, res, next) => {
 
     const {
@@ -117,23 +122,23 @@ const postForm = (req, res, next) => {
 
     const filePath = Path.join(__dirname + '/app', '/views/pages/pdf.ejs');
     const templateHtml = Fs.readFileSync(filePath, 'utf8');
-    const htmlPronto = Ejs.render(templateHtml, pdfViewModel);
+    const finalHtml = Ejs.render(templateHtml, pdfViewModel);
 
     const file = {
-        content: htmlPronto
+        content: finalHtml
     };
 
-    const configuracoes = {
+    const pdfConfig = {
         format: 'A4',
-        printBackground: true
+        printBackground: true,
+        displayHeaderFooter: true,
     };
 
-    HtmlToPdf.generatePdf(file, configuracoes)
-        .then((resultPromessa) => {
+    HtmlToPdf.generatePdf(file, pdfConfig)
+        .then((response) => {
             res.contentType("application/pdf");
-            res.send(resultPromessa);
+            res.send(response);
         });
-
 
 };
 

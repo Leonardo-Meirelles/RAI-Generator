@@ -5,12 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    header {
+        margin: 20px;
+    }
+
+    #logo {
+        height: 100%;
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
+    }
+
+
+
+    </style>
 </head>
 <body>
-    
+    <header>
+        <img src="https://i.ibb.co/KbPr1Sg/header.png" alt="image" id='logo'>
+    </header>
+
+    <main>
+        <div>
+            <h1>Reporte Inicial</h1>
+        </div>
+
+        <div>
+            <p>Os trabalhos relativos a esta ocorrência estão em andamento.</p>
+            <p> Os dados aqui disponibilizados são preliminares e visam à transparência das informações que temos até o momento. Por isso,
+                não contêm as análises das informações coletadas, nem os fatores contribuintes, e estão sujeitas a modi􀄮cações conforme o
+                andamento dos trabalhos de inves􀆟gação. Portanto, nenhuma conclusão deve ser feita a par􀆟r destes dados preliminares.
+            </p>
+        </div>
+
+        
+
+
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 </html>
-
 
 
 processNumber:           <%= processNumber %> 
@@ -40,4 +91,4 @@ manufacturingYear:       <%= manufacturingYear %>
 manufacturer:            <%= manufacturer %>
 model:                   <%= model %>
 maxTakeOffWeightOption:  <%= maxTakeOffWeightOption %>
-maxTakeOffWeight:        <%= maxTakeOffWeight %>   
+maxTakeOffWeight:        <%= maxTakeOffWeight %>  

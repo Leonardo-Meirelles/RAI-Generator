@@ -2,7 +2,6 @@
 
 const crew = document.getElementById('crewOrPassenger');
 const quantity = document.getElementById('quantity');
-const yes = document.getElementById('si-yes');
 
 //crewOrPassenger
 const legendCrew = document.createElement('legend');
@@ -22,10 +21,12 @@ function addSevereInjure() {
     inputCrew.setAttribute('type', 'radio');
     inputCrew.setAttribute('name', 'onBoardFunction1');
     inputCrew.setAttribute('value', 'Tripulantes');
+    inputCrew.setAttribute('class', 'customRadio');
     labelPax.textContent = 'Passageiros';
     inputPax.setAttribute('type', 'radio');
     inputPax.setAttribute('name', 'onBoardFunction2');
     inputPax.setAttribute('value', 'Passageiros');
+    inputPax.setAttribute('class', 'customRadio');
 
     crew.append(legendCrew);
     crew.append(labelCrew);
@@ -36,6 +37,7 @@ function addSevereInjure() {
     legendQuantity.textContent = 'Quantidade';
     inputQuantity.setAttribute('type', 'number');
     inputQuantity.setAttribute('name', 'quantity');
+    inputQuantity.setAttribute('class', 'customInput');
 
     quantity.append(legendQuantity);
     quantity.append(inputQuantity);
