@@ -30,6 +30,26 @@
         width: 100%;
     }
 
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .section2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section3 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div1 {
+        
+    }
+
 
 
     </style>
@@ -40,17 +60,93 @@
     </header>
 
     <main>
-        <div>
-            <h1>Reporte Inicial</h1>
-        </div>
+        <section class='section1'>
+            <div class='div1'>
+                <h1>Reporte Inicial</h1>
+            </div>
+            
+            <div>
+                <h4>Os trabalhos relativos a esta ocorrência estão em andamento.</h4>
+                <p> Os dados aqui disponibilizados são preliminares e visam à transparência das informações que temos até o momento. Por isso,
+                    não contêm as análises das informações coletadas, nem os fatores contribuintes, e estão sujeitas a modficações conforme o
+                    andamento dos trabalhos de investigação. Portanto, nenhuma conclusão deve ser feita a partir destes dados preliminares.
+                </p>
+            </div>
+        </section>
 
-        <div>
-            <p>Os trabalhos relativos a esta ocorrência estão em andamento.</p>
-            <p> Os dados aqui disponibilizados são preliminares e visam à transparência das informações que temos até o momento. Por isso,
-                não contêm as análises das informações coletadas, nem os fatores contribuintes, e estão sujeitas a modi􀄮cações conforme o
-                andamento dos trabalhos de inves􀆟gação. Portanto, nenhuma conclusão deve ser feita a par􀆟r destes dados preliminares.
-            </p>
-        </div>
+        <section class='section2'>
+            <div>
+                <h2>Informações Gerais</h2>
+            </div>
+
+            <div>
+                <h3>Número do Processo: <%= processNumber %> </h3>
+            </div>
+
+            <div>
+                <div>
+                    <p> <b>Classificação:</b> <%= classification %> </p>
+                    <p> <b>Tipo de Ocorrência:</b> <%= occurrenceType %> </p>
+                    <p> <b>Data (UTC):</b> <%= date %> </p>
+                    <p> <b>Horário (UTC):</b> <%= time %> </p>
+                    <p> <b>Cidade:</b> <%= city %> </p>
+                    <p> <b>Estado:</b> <%= state %> </p>
+                    <p> <b>Aeródromo:</b> <%= aerodrome %> </p>
+                    <p> <b>Danos a terceiros:</b> <%= thirdPartyDamage %> </p>
+                </div>
+
+                <div>
+                    <table>
+                        <tr>
+                            <th>Lesão Grave?</th>
+                            <th>Função a Bordo:</th>
+                            <th>Quantidade:</th>
+                        </tr>
+                        <tr>
+                            <td> <%= severeInjure %> </td>
+                            <td> <%= onBoardFunction1 %> | <%= onBoardFunction2 %> </td>
+                            <td> <%= quantity %> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3>Histórico:</h3>
+                <textarea cols="90" rows="8"> <%= history %> </textarea>
+            </div>
+        </section>
+
+        <section class='section3'>
+            <div>
+                <div>
+                    <h3>Aeronave Envolvida:</h3>
+                    <p> <b>Matrícula:</b> <%= registration %> </p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <div>
+                        <p> <b>Local da última decolagem:</b> <%= lastTakeOff %> <p>
+                        <p> <b>Local do pouso pretendido:</b> <%= landing %> <p>
+                        <p> <b>Categoria de registro:</b> <%= registerCategory %> <p>
+                        <p> <b>Tipo de operação:</b> <%= operationType %> <p>
+                        <p> <b>Fase de operação:</b> <%= operationPhase %> <p>
+                        <p> <b>Danos à aeronave:</b> <%= aircraftDamage %> </p>
+                    </div>
+                </div>
+    
+                <div>
+                    <p> <b>Tipo de aeronave:</b> <%= aircraftType %> </p>
+                    <p> <b>Estado de registro:</b> <%= registryCountry %> </p>
+                    <p> <b>Ano de fabricação:</b> <%= manufacturingYear %> </p>
+                    <p> <b>Fabricante:</b> <%= manufacturer %> </p>
+                    <p> <b>Modelo:</b> <%= model %> </p>
+                    <p> <b>Peso máximo de decolagem:</b> <%= maxTakeOffWeight %> <%= maxTakeOffWeightOption %>   </p>
+                </div>
+            </div>
+        </section>
 
         
 
@@ -61,34 +157,4 @@
 
     </footer>
 </body>
-</html>
-
-
-processNumber:           <%= processNumber %> 
-classification:          <%= classification %>
-occurrenceType:          <%= occurrenceType %>
-date:                    <%= date %>
-time:                    <%= time %>
-state:                   <%= state %>
-city:                    <%= city %>
-aerodrome:               <%= aerodrome %>
-thirdPartyDamage:        <%= thirdPartyDamage %>
-severeInjure:            <%= severeInjure %>
-onBoardFunction1:        <%= onBoardFunction1 %>
-onBoardFunction2:        <%= onBoardFunction2 %>
-quantity:                <%= quantity %>
-history:                 <%= history %>
-registration:            <%= registration %>
-lastTakeOff:             <%= lastTakeOff %>
-landing:                 <%= landing %>
-registerCategory:        <%= registerCategory %>
-operationType:           <%= operationType %>
-operationPhase:          <%= operationPhase %>
-aircraftDamage:          <%= aircraftDamage %>
-aircraftType:            <%= aircraftType %>
-registryCountry:         <%= registryCountry %>
-manufacturingYear:       <%= manufacturingYear %>
-manufacturer:            <%= manufacturer %>
-model:                   <%= model %>
-maxTakeOffWeightOption:  <%= maxTakeOffWeightOption %>
-maxTakeOffWeight:        <%= maxTakeOffWeight %>  
+</html>  

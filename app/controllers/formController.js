@@ -3,9 +3,6 @@ import Path from 'path';
 import * as Fs from 'fs';
 import HtmlToPdf from 'html-pdf-node';
 
-import Express from 'express';
-const app = Express();
-
 //* { Import Models 
 import classificationModel from '../models/model-classification.js';
 import { statesModel, filterStatesModel } from '../models/model-states.js';
