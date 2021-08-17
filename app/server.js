@@ -17,6 +17,6 @@ app.set('views', Path.join(__dirname + '/app', 'views'));
 
 Routes(app);
 
-const port = 5000;
+const port = 3000;
 app.listen(port, () => {
 })

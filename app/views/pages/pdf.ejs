@@ -9,6 +9,7 @@
     * {
         margin: 0;
         padding: 0;
+        font-size: 14px;
     }
 
     body {
@@ -18,7 +19,7 @@
     }
 
     header {
-        margin: 20px;
+        margin: 10px 20px 0px 20px;
     }
 
     #logo {
@@ -30,26 +31,113 @@
         width: 100%;
     }
 
-    .section1 {
+    .section1-2 {
         display: flex;
         flex-direction: column;
-        
-    }
-
-    .section2 {
-        display: flex;
-        flex-direction: column;
+        margin: 10px 20px;
+        padding: 10px 20px;
     }
 
     .section3 {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin: 10px 20px;
+        padding: 10px 20px;
     }
 
-    .div1 {
-        
+    .initial {
+        padding: 5px;
     }
 
+    .initial-h4 {
+        padding: 10px 0 10px 0;
+    }
+
+    .process-number {
+        display: flex;
+        justify-content: center;
+    }
+
+    .content-1 {
+        display: flex;
+        justify-content: space-between;
+        height:300px;
+
+    }
+
+    .content-1-div-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 250px;
+        padding: 20px 0 20px 0;
+    }
+
+    .date {
+        display: flex;
+        justify-content: space-between;
+        width: 330px;
+    }
+
+    .table, th, td {
+        background-color: rgba(211, 211, 211, 0.63);
+        border: 1px solid black;
+        text-align: center;
+        border-collapse: collapse;
+        padding: 3px;
+    }
+
+    .content-1-div-2 {
+        margin: 80px 0 20px 0;
+    }
+
+    .div-history {
+        text-align: center;
+    }
+
+    .history {
+        width: 700px;
+        padding: 5px;
+    }
+
+    .section3-aircraft {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height:50px;
+    }
+
+    .content-2 {
+       display: flex; 
+       justify-content: space-between;
+       height:200px;
+       width: 100%;
+    }
+
+    .content-2-div-1 {
+       display: flex;
+       flex-direction: column;
+       justify-content:space-between; 
+    }
+
+    .content-2-div-2 {
+       display: flex;
+       flex-direction: column;
+       justify-content:space-between; 
+    }
+
+    footer {
+        height: 100%;
+        width: 100%;
+        margin: 10px 20px;
+    }
+
+    .footer-img {
+        height:60px;
+        width: 770px;
+    }
 
 
     </style>
@@ -60,13 +148,13 @@
     </header>
 
     <main>
-        <section class='section1'>
-            <div class='div1'>
-                <h1>Reporte Inicial</h1>
+        <section class='section1-2'>
+            <div class='initial'>
+                <h1 style='font-size:26px'>Reporte Inicial</h1>
             </div>
             
             <div>
-                <h4>Os trabalhos relativos a esta ocorrência estão em andamento.</h4>
+                <h4 class="initial-h4">Os trabalhos relativos a esta ocorrência estão em andamento.</h4>
                 <p> Os dados aqui disponibilizados são preliminares e visam à transparência das informações que temos até o momento. Por isso,
                     não contêm as análises das informações coletadas, nem os fatores contribuintes, e estão sujeitas a modficações conforme o
                     andamento dos trabalhos de investigação. Portanto, nenhuma conclusão deve ser feita a partir destes dados preliminares.
@@ -74,29 +162,31 @@
             </div>
         </section>
 
-        <section class='section2'>
+        <section class='section1-2'>
             <div>
-                <h2>Informações Gerais</h2>
+                <h3 style='font-size:18px'>Informações Gerais</h3>
             </div>
 
-            <div>
-                <h3>Número do Processo: <%= processNumber %> </h3>
+            <div class="process-number">
+                <h3 style='font-size:16px'>Número do Processo: <%= processNumber %> </h3>
             </div>
 
-            <div>
-                <div>
+            <div class="content-1">
+                <div class='content-1-div-1'>
                     <p> <b>Classificação:</b> <%= classification %> </p>
                     <p> <b>Tipo de Ocorrência:</b> <%= occurrenceType %> </p>
-                    <p> <b>Data (UTC):</b> <%= date %> </p>
-                    <p> <b>Horário (UTC):</b> <%= time %> </p>
+                    <div class='date'>
+                        <p> <b>Data (UTC):</b> <%= date %> </p>
+                        <p> <b>Horário (UTC):</b> <%= time %> </p>
+                    </div>
                     <p> <b>Cidade:</b> <%= city %> </p>
                     <p> <b>Estado:</b> <%= state %> </p>
                     <p> <b>Aeródromo:</b> <%= aerodrome %> </p>
                     <p> <b>Danos a terceiros:</b> <%= thirdPartyDamage %> </p>
                 </div>
 
-                <div>
-                    <table>
+                <div class='content-1-div-2'>
+                    <table class='table'>
                         <tr>
                             <th>Lesão Grave?</th>
                             <th>Função a Bordo:</th>
@@ -111,33 +201,31 @@
                 </div>
             </div>
 
-            <div>
+            <div class='div-history'>
                 <h3>Histórico:</h3>
-                <textarea cols="90" rows="8"> <%= history %> </textarea>
+                <textarea cols="80" rows="8" class='history'> <%= history %> </textarea>
             </div>
         </section>
 
         <section class='section3'>
-            <div>
-                <div>
-                    <h3>Aeronave Envolvida:</h3>
+            <div >
+                <div class='section3-aircraft'>
+                    <h3 style='font-size:16px'>Aeronave Envolvida:</h3>
                     <p> <b>Matrícula:</b> <%= registration %> </p>
                 </div>
             </div>
 
-            <div>
-                <div>
-                    <div>
-                        <p> <b>Local da última decolagem:</b> <%= lastTakeOff %> <p>
-                        <p> <b>Local do pouso pretendido:</b> <%= landing %> <p>
-                        <p> <b>Categoria de registro:</b> <%= registerCategory %> <p>
-                        <p> <b>Tipo de operação:</b> <%= operationType %> <p>
-                        <p> <b>Fase de operação:</b> <%= operationPhase %> <p>
-                        <p> <b>Danos à aeronave:</b> <%= aircraftDamage %> </p>
-                    </div>
+            <div class='content-2'>
+                <div class='content-2-div-1'>
+                    <p> <b>Local da última decolagem:</b> <%= lastTakeOff %> <p>
+                    <p> <b>Local do pouso pretendido:</b> <%= landing %> <p>
+                    <p> <b>Categoria de registro:</b> <%= registerCategory %> <p>
+                    <p> <b>Tipo de operação:</b> <%= operationType %> <p>
+                    <p> <b>Fase de operação:</b> <%= operationPhase %> <p>
+                    <p> <b>Danos à aeronave:</b> <%= aircraftDamage %> </p>
                 </div>
     
-                <div>
+                <div class='content-2-div-2'>
                     <p> <b>Tipo de aeronave:</b> <%= aircraftType %> </p>
                     <p> <b>Estado de registro:</b> <%= registryCountry %> </p>
                     <p> <b>Ano de fabricação:</b> <%= manufacturingYear %> </p>
@@ -147,14 +235,10 @@
                 </div>
             </div>
         </section>
-
-        
-
-
     </main>
 
     <footer>
-
+        <img src="https://i.ibb.co/B60NJfD/footer.png" alt="image" class='footer-img'>
     </footer>
 </body>
 </html>  
