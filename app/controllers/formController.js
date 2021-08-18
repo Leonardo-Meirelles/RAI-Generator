@@ -116,7 +116,7 @@ const postForm = (req, res, next) => {
         maxTakeOffWeightOption: selectedMaxTakeOffWeightOption.value,
         maxTakeOffWeight,
     }
-
+    
     const filePath = Path.join(__dirname + '/app', '/views/pages/pdf.ejs');
     const templateHtml = Fs.readFileSync(filePath, 'utf8');
     const finalHtml = Ejs.render(templateHtml, pdfViewModel);

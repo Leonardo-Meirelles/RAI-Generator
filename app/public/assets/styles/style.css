@@ -292,7 +292,6 @@ footer {
     margin: auto 0px 0px 0px;
     padding: 5px;
     background-color: #f2f2f2;
-
 }
 
 .footerDiv {
@@ -303,4 +302,50 @@ footer {
     width: 30vw;
     height: 22px;
     border: 2px solid black;
+}
+
+.error-page-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+}
+
+.about-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+    flex: 1;
+}
+
+.powered-by {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-img {
+    height: 100px;
+    width: 100px;
+}
+
+.prog-img {
+    height: 50px;
+    width: 50px;
+}
+
+.prog-img-2 {
+    height: 50px;
+    width: 50px;
+    
 }

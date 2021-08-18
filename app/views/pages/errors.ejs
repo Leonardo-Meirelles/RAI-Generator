@@ -1,0 +1,17 @@
+<%- include('../components/head', { title: 'Error' }) %>
+    <body>
+        <header>
+            <%- include('../components/header') %>
+        </header>
+
+        <main class='error-page-main'>
+            <% error.forEach((e)=> { %>
+                <h1><%=e.message %></h1>
+            <% }) %>
+        </main>
+
+        <footer>
+            <%- include('../components/footer') %>
+        </footer>
+    </body>
+</html>
