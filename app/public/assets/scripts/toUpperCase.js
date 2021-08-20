@@ -10,8 +10,5 @@ function upper (tag, input) {
 
 };
 
-upper(aerodrome,'input')
-upper(registration,'input')
-
-
-
+upper(aerodrome,'input');
+upper(registration,'input');
