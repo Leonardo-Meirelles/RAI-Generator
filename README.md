@@ -32,7 +32,7 @@ I made this website during the Infnet FullStack Bootcamp.
 
 ![Jquery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
 
-EJS View Engine (didn't found a badge, sorry)
+EJS View Engine and Joi Validator (didn't found a badge, sorry)
 
 ## License
 
