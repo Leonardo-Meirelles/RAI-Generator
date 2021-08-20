@@ -1,5 +1,5 @@
 
-# RAI Generator (PDF)
+# Gerador de RAI (PDF)
 
 This project generates a RAI form PDF. This is the first document published in an aviation accident.
 I made this website during the Infnet FullStack Bootcamp.
