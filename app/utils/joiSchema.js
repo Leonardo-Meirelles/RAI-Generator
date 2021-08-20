@@ -30,17 +30,15 @@ const joiSchema = Joi.object({
     thirdPartyDamage: Joi.number().required().messages({
         'any.required': `O campo 'Danos a terceiros' deve ser preenchido`
     }),
-    //!  CORRIGIR AQUI
+    
     severeInjure: Joi.number().required().valid(1, 2).messages({
         'any.required': `O campo 'Houve lesão grave?' deve ser preenchido`
     }),
-    onBoardFunction1: Joi.alternatives().conditional('severeInjure', {is: 1, then: Joi.string().valid('Tripulantes')}).messages({
+    onBoardFunction1: Joi.string().allow(null).default(null),
 
+    onBoardFunction2: Joi.string().when('onBoardFunction1', {is: null, then: Joi.required()}).messages({
+        'any.required': `Pelo menos uma opção no campo 'Função a bordo?' deve ser selecionada`
     }),
-    onBoardFunction2: Joi.alternatives().conditional('onBoardFunction1', {not: 'Tripulantes', then: Joi.string().valid('Passageiros').required(), otherwise: Joi.string().valid('Passageiros','')}).messages({
-
-    }),
-    //!
     quantity: Joi.alternatives().conditional('severeInjure', {is: 1, then: Joi.number().required()}).messages({
         'number.base': `O campo 'Quantidade' deve ser preenchido`
     }),
