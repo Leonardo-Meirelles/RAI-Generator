@@ -17,6 +17,5 @@ app.set('views', Path.join(__dirname + '/app', 'views'));
 
 Routes(app);
 
-app.timeout= 60000
 app.listen(process.env.PORT || 5000, () => {
 })
