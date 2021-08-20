@@ -3,7 +3,7 @@ pipeline {
     GIT_BRANCH = "main"
     IMAGE_NAME = "azevedoc/leo-web-app"
     CONTAINER_NAME = "leo-demo-test"
-    DOCKER_PORTS_EXPOSED = "5000:5500"
+    DOCKER_PORTS_EXPOSED = "5500:5000"
   }
    agent any
    stages {
