@@ -1,11 +1,12 @@
 {
-  "name": "gerador-pdf",
+  "name": "rai-generator-pdf",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project generates a RAI form PDF. This is the first document published in an aviation accident",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./app/server.js",
+    "start": "node ./app/server.js",
+    "dev": "nodemon ./app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
