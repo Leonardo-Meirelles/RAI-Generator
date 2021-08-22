@@ -38,7 +38,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 35vw;
+    width: 80%;
 }
 
 .navLogo {
@@ -324,7 +324,7 @@ footer {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    width: 30vw;
+    width: 40%;
     height: 22px;
     border: 2px solid black;
 }

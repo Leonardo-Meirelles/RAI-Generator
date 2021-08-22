@@ -17,7 +17,7 @@ const operationPhaseModel = [
     },
     {
         id: 5,
-        value: 'Circuito de TráfegoCorrida Após o Pouso'
+        value: 'Corrida Após o Pouso'
     },
     {
         id: 6,
