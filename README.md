@@ -1,4 +1,6 @@
 
+
+
 # Gerador de RAI (PDF)
 
 This project generates a RAI form PDF. This is the first document published in an aviation accident.
@@ -34,6 +36,13 @@ I made this website during the Infnet FullStack Bootcamp.
 
 EJS View Engine and Joi Validator (didn't found a badge, sorry)
 
+## Link to the project
+
+```bash
+  http://18.119.18.144:5500
+```
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
@@ -44,6 +53,8 @@ EJS View Engine and Joi Validator (didn't found a badge, sorry)
 Clone the project
 
 ```bash
+  git clone https://github.com/Leonardo-Meirelles/RAI-Generator.git
+                                or
   git clone https://gitlab.com/leonardo.dmeirelles/pdf-generator.git
 ```
 
