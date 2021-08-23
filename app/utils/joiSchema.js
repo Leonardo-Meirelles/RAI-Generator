@@ -34,7 +34,7 @@ const joiSchema = Joi.object({
     severeInjure: Joi.number().required().valid(1, 2).messages({
         'any.required': `O campo 'Houve lesão grave?' deve ser preenchido`
     }),
-    onBoardFunction1: Joi.string().allow(null).default(null),
+    onBoardFunction1: Joi.string().when('severeInjure', {is: 1, then: Joi.allow(null).default(null)}),
 
     onBoardFunction2: Joi.string().when('onBoardFunction1', {is: null, then: Joi.required()}).messages({
         'any.required': `Pelo menos uma opção no campo 'Função a bordo?' deve ser selecionada`
